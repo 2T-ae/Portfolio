@@ -43,7 +43,7 @@ function App() {
             textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
             marginBottom: '30px'
           }}>
-            Preparing for the Future
+            Preparing for the Future #1
           </h1>
           
           <div style={{ margin: '20px 0' }}>
