@@ -1,0 +1,116 @@
+/* 배경 컨테이너 스타일 - 양옆 공백 완전 제거 */
+.background {
+  position: relative;
+  width: 100vw;  /* 100% 대신 100vw 사용 */
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+}
+
+/* 오버레이 스타일 */
+.background__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 수정된 콘텐츠 스타일 - 양옆 공백 제거 */
+.background__content {
+  position: relative;
+  z-index: 2;
+  width: 100vw;  /* 100% 대신 100vw 사용 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 메인 콘텐츠 섹션 스타일 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 140px);  /* 헤더/푸터 높이 고려 */
+}
+
+/* 전체 레이아웃 리셋 - 양옆 공백 제거 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 브라우저 기본 마진/패딩 완전 제거 */
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 양옆 공백 완전 제거를 위한 추가 스타일 */
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .background__content {
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    padding: 20px 15px;
+    min-height: calc(100vh - 120px);
+  }
+}
+
+/* 배경 이미지 크기 문제 해결을 위한 추가 옵션들 */
+.background--fill {
+  background-size: 100% 100%;  /* 화면에 맞춰 늘림 */
+}
+
+.background--contain {
+  background-size: contain;  /* 이미지 전체가 보이도록 */
+}
+
+.background--repeat {
+  background-repeat: repeat;  /* 반복 패턴 */
+  background-size: auto;
+}
