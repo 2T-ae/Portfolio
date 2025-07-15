@@ -6,9 +6,9 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 // 페이지 컴포넌트들
-import HomePage from './components/pages/HomePage';
-import AboutPage from './components/pages/AboutPage';
-import ProjectsPage from './components/pages/ProjectsPage';
+import HomePage from './components/pages/Homepage';
+import AboutPage from './components/pages/Aboutpage';
+import ProjectsPage from './components/pages/Projectspage';
 
 function App() {
   return (
