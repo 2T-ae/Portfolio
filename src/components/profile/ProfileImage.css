@@ -39,6 +39,11 @@
   height: 120px;
 }
 
+.profile-image--ex-large {
+  width: 160px;
+  height: 160px;
+}
+
 /* 모양 variants */
 .profile-image--circle {
   border-radius: 50%;

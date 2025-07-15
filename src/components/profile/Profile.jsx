@@ -12,7 +12,8 @@ const ProfileImage = ({
   const sizeClasses = {
     small: "profile-image--small",
     medium: "profile-image--medium", 
-    large: "profile-image--large"
+    large: "profile-image--large",
+    exlarge: "profile-image--ex-large"
   };
 
   const shapeClasses = {
