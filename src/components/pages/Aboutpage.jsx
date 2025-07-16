@@ -25,17 +25,18 @@ function AboutPage() {
   return (
     <div style={{
       width: '100%',
-      height: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      paddingTop: '40px',
+      alignItems: 'flex-start', // 왼쪽 정렬
+      textAlign: 'left', // 텍스트 왼쪽 정렬
     }}>
       <h1 style={{
-        fontSize: '2.5rem',
+        fontSize: '2.0rem',
         fontWeight: 'bold',
         marginBottom: '30px',
-        color: 'white'
+        color: 'white',
+        width: '100%'
       }}>
         About Me
       </h1>
@@ -43,11 +44,17 @@ function AboutPage() {
       {/* 개발자 소개 섹션 */}
       <div style={commonCardStyle}>
         <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'white' }}>개발자 소개</h3>
-        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px', color: '#ffffff' }}>
+        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
           안녕하세요! 저는 현재 조선대학교 컴퓨터공학과에 재학중인 25학번 윤영태입니다.
         </p>
-        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px', color: '#ffffff' }}>
+        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
           React, JavaScript를 공부하고 있으며, 새로운 기술을 배우는 것을 즐깁니다.
+        </p>
+        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
+          지금 보고 계신 사이트는 1학년 1학기 여름방학때 자바 스크립트와 리액트를 공부하면서 만든 포트폴리오입니다.
+        </p>
+        <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
+          앞으로도 여러 경험을 쌓고, 이를 통해 성장해 나갈 것입니다.
         </p>
       </div>
 
@@ -87,7 +94,7 @@ function AboutPage() {
             <img
               src="https://img.shields.io/badge/Gmail-black?style=for-the-badge&logo=gmail&logoColor=white"
               alt="Gmail"
-              style={{ marginRight: '10px' }} // 이미지와 텍스트 사이 간격 추가
+              style={{ marginRight: '10px' }}
             />
             aprien258@gmail.com
           </p>
@@ -95,7 +102,7 @@ function AboutPage() {
             <img
               src="https://img.shields.io/badge/github-black?style=for-the-badge&logo=github&logoColor=white"
               alt="GitHub"
-              style={{ marginRight: '10px' }} // 이미지와 텍스트 사이 간격 추가
+              style={{ marginRight: '10px' }}
             />
             github.com/2T-ae
           </p>

@@ -21,7 +21,7 @@ const linkStyle = {
   marginLeft: '20px',  // 링크들 간의 간격
   marginRight: '20px',  // 링크들 간의 간격
   textDecoration: 'none',  // 링크 밑줄 제거
-  color: '#0077FF',  // 링크 색상
+  color: '#00d0ffff',  // 링크 색상
   fontSize: '18px',
   fontWeight: 'bold',
   transition: 'color 0.3s ease',  // 색상 변화 효과

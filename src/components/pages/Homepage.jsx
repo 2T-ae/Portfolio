@@ -13,16 +13,17 @@ function HomePage() {
       <h1 style={{ 
         fontSize: '2.5rem', 
         fontWeight: 'bold', 
-        marginBottom: '30px' 
+        marginBottom: '30px',
+        color: '#3cffc8ff',
       }}>
-        Try
+        Hello, World!
       </h1>
 
       <h2 style={{ 
         fontSize: '1.8rem', 
         marginBottom: '25px' 
       }}>
-        Hello, World!
+        #1 Portfolio
       </h2>
 
       <p style={{ 
@@ -30,16 +31,20 @@ function HomePage() {
         lineHeight: '1.6', 
         marginBottom: '30px',
       }}>
-        환영합니다! 이곳은 메인 페이지입니다.
+        환영합니다! 이곳은 메인 페이지입니다.<br></br>
+        현재는 제작중이므로 미완성 상태입니다.
       </p>
 
       {/* GitHub Repository 버튼 */}
       <div style={{ 
         marginTop: '20px',  // 버튼과 텍스트 사이의 간격
+        display: 'flex',
+        gap: '20px',
+        alignItems: 'center'
       }}>
         <button style={{
           padding: '15px 30px',
-          backgroundColor: '#667eea',
+          backgroundColor: '#344fc9ff',
           color: 'white',
           border: 'none',
           borderRadius: '5px',
@@ -62,8 +67,34 @@ function HomePage() {
             GitHub Repository
           </a>
         </button>
+
+        <button style={{
+          padding: '15px 30px',
+          backgroundColor: '#344fc9ff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease'
+        }}>
+          <a 
+            href="https://github.com/2T-ae/portfolio" 
+            style={{ 
+              color: 'white', 
+              textDecoration: 'none',
+              display: 'block',
+              width: '100%',
+              height: '100%'
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Notion
+          </a>
+          </button>
+        </div>
       </div>
-    </div>
   );
 }
 

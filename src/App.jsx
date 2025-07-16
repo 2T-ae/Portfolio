@@ -13,41 +13,59 @@ import ProjectsPage from './components/pages/Projectspage';
 function App() {
   return (
     <Router>
-      <div style={{ 
-        width: '100%', 
-        height: '100vh', 
-        margin: 0, 
+      <div style={{
+        width: '100%',
+        margin: 0,
         padding: 0,
         overflowX: 'hidden',
-        position: 'relative',
         display: 'flex',
-        flexDirection: 'row',  // 페이지를 좌우로 나누기 위해 'row'로 설정
+        flexDirection: 'row',
+        minHeight: '100vh',
       }}>
+
         {/* 왼쪽 배경 (bluesky.jpg) */}
-        <div 
+        <div
           style={{
-            width: '50%',  // 왼쪽 절반 차지
-            height: '100vh',  // 화면 전체 높이
-            backgroundImage: `url('/bluesky.jpg')`,  // 배경을 bluesky.jpg로 설정
+            width: '50%',
+            height: '100vh',
+            backgroundImage: `url('/bluesky.jpg')`,
             backgroundPosition: 'center center',
-            backgroundSize: 'cover',  // 배경 이미지가 화면을 덮도록 설정
-            backgroundRepeat: 'no-repeat',  // 반복되지 않도록 설정
-            position: 'relative',  // img1.jpg 배치할 기준으로 설정
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            position: 'fixed', // fixed로 변경
+            top: 0,
+            left: 0,
+            zIndex: 1,
           }}
         >
-          {/* img1.jpg를 중앙에 배치 */}
+          {/* 그라데이션 오버레이 */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%)',
+            }}
+          />
+          
+          {/* img2.jpg를 중앙에 배치 */}
           <img 
-            src="/img2.jpg"  // public 폴더의 img1.jpg 파일을 사용
+            src="/img2.jpg"
             alt="프로필 사진"
             style={{
               position: 'absolute',
-              top: '50%',  // 배경의 중앙에 배치
+              top: '50%',
               left: '50%',
-              transform: 'translate(-50%, -50%)',  // 이미지 중앙 정렬
-              width: '500px',  // 이미지 크기 설정 (필요에 따라 변경)
-              height: '500px',
-              borderRadius: '10px',  // 이미지 테두리 둥글게
-              objectFit: 'cover',  // 이미지가 영역을 꽉 채우도록 설정
+              transform: 'translate(-50%, -50%)',
+              width: '400px',
+              height: '400px',
+              borderRadius: '10px',
+              objectFit: 'cover',
+              mask: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
+              WebkitMask: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
+              zIndex: 2
             }}
           />
         </div>
@@ -55,23 +73,22 @@ function App() {
         {/* 텍스트 영역 (오른쪽 50%) */}
         <div 
           style={{
-            width: '50%',  // 오른쪽 절반 차지
-            height: '100vh',  // 화면 전체 높이
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: '#000000',  // 텍스트 색상
-            padding: '20px',
+            width: '50%',
+            marginLeft: '50%', // 왼쪽 여백으로 배경 공간 확보
+            minHeight: '100vh',
+            backgroundColor: '#000000', // 배경색 명시적으로 설정
+            color: 'white',
+            position: 'relative',
+            zIndex: 3,
           }}
         >
           {/* 헤더 */}
           <div style={{
             position: 'absolute',
-            top: 20,
-            right: 20,
+            top: 0,
+            right: 0,
             zIndex: 10,
-            fontSize: '18px',  // 헤더와 비슷한 글자 크기
+            fontSize: '18px',
           }}>
             <Header />
           </div>
@@ -79,8 +96,10 @@ function App() {
           {/* 페이지 내용 */}
           <div style={{
             width: '100%',
-            textAlign: 'center',
-            color: 'white',  // 텍스트 색상
+            color: 'white',
+            padding: '80px 40px 80px 40px', // 상하 패딩 충분히 확보
+            boxSizing: 'border-box',
+            minHeight: '100vh', // 최소 높이 보장
           }}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -91,15 +110,12 @@ function App() {
 
           {/* 푸터 */}
           <div style={{
-            position: 'absolute',
-            bottom: 20,
-            right: 20,
-            zIndex: 10,
-            fontSize: '18px',  // 헤더와 비슷한 글자 크기
-            color: 'blue',  // 푸터 텍스트 색상 (원하는 색상으로 수정 가능)
-            textAlign: 'right',  // 오른쪽 정렬
+            padding: '20px 40px',
+            fontSize: '18px',
+            color: 'blue',
+            textAlign: 'right',
           }}>
-            <Footer />
+            {/* 푸터 컴포넌트가 필요하면 여기에 추가 */}
           </div>
         </div>
       </div>

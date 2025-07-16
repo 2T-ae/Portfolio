@@ -17,20 +17,28 @@ const SplitBackground = ({
   height = "100vh", // 화면 높이에 맞게 설정
   minHeight = "500px"
 }) => {
+  const containerStyles = {
+    minHeight: height, // height 대신 minHeight 사용
+    display: 'flex',
+    flexDirection: direction === 'horizontal' ? 'row' : 'column',
+    position: 'relative',
+  };
 
-  const backgroundStyles = {
+  const backgroundSectionStyles = {
+    position: 'relative',
+    width: direction === 'horizontal' ? `${backgroundRatio * 100}%` : '100%',
+    height: direction === 'horizontal' ? '100%' : `${backgroundRatio * 100}%`,
+    minHeight: direction === 'horizontal' ? minHeight : `${backgroundRatio * parseInt(minHeight)}px`,
     backgroundImage: `url(${src})`,
     backgroundPosition: position,
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: type === 'fixed' ? 'fixed' : 'scroll',
     backgroundSize: type === 'cover' ? 'cover' : type === 'contain' ? 'contain' : 'cover',
     opacity: opacity,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 0
+    flexShrink: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   };
 
   const overlayStyles = overlay ? {
@@ -43,20 +51,10 @@ const SplitBackground = ({
     zIndex: 1
   } : {};
 
-  const containerStyles = {
-    height: height,
-    minHeight: minHeight,
-    display: 'flex',
-    flexDirection: direction === 'horizontal' ? 'row' : 'column',
-    overflow: 'hidden',
-    position: 'relative', // 콘텐츠가 겹치지 않도록 위치 설정
-  };
-
   const textSectionStyles = {
     position: 'relative',
-    zIndex: 2,
     width: direction === 'horizontal' ? `${(1 - backgroundRatio) * 100}%` : '100%',
-    height: direction === 'horizontal' ? '100%' : `${(1 - backgroundRatio) * 100}%`,
+    height: direction === 'horizontal' ? 'auto' : `${(1 - backgroundRatio) * 100}%`,
     minHeight: direction === 'horizontal' ? minHeight : `${(1 - backgroundRatio) * parseInt(minHeight)}px`,
     backgroundColor: textAreaColor,
     color: textAreaColor === '#000000' ? '#ffffff' : '#000000',
@@ -71,27 +69,27 @@ const SplitBackground = ({
     overflow: 'auto'
   };
 
+  const contentStyles = {
+    position: 'relative',
+    zIndex: 2,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
   return (
     <div className={`split-background ${className}`} style={containerStyles}>
-      <div className="split-background__image-section" style={backgroundStyles}>
+      <div className="split-background__image-section" style={backgroundSectionStyles}>
         {overlay && <div className="split-background__overlay" style={overlayStyles} />}
-        <div className="split-background__content" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 2 }}>
+        <div className="split-background__content" style={contentStyles}>
           {children}
         </div>
       </div>
-
+      
       <div className="split-background__text-section" style={textSectionStyles}>
-        {textContent || (
-          <div>
-            <h2 style={{ marginBottom: '20px', fontSize: '32px', fontWeight: 'bold' }}>
-              텍스트 영역
-            </h2>
-            <p>
-              이 공간에 원하는 텍스트나 콘텐츠를 추가할 수 있습니다. 
-              배경 이미지와 함께 멋진 레이아웃을 만들어보세요.
-            </p>
-          </div>
-        )}
+        {textContent}
       </div>
     </div>
   );
