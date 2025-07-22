@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaGitAlt, FaJsSquare, FaPython } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaGitAlt, FaJs } from 'react-icons/fa6';
 
 function AboutPage() {
   // 공통 스타일 정의
@@ -43,15 +43,15 @@ function AboutPage() {
 
       {/* 개발자 소개 섹션 */}
       <div style={commonCardStyle}>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'white' }}>개발자 소개</h3>
+        <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: 'white' }}>NICE TO SEE YOU</h3>
         <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
           안녕하세요! 저는 현재 조선대학교 컴퓨터공학과에 재학중인 25학번 윤영태입니다.
         </p>
         <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
-          React, JavaScript를 공부하고 있으며, 새로운 기술을 배우는 것을 즐깁니다.
+          현재 React와 JavaScript를 공부하고 있으며, 코드를 배우는 것을 즐깁니다.
         </p>
         <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
-          지금 보고 계신 사이트는 1학년 1학기 여름방학때 자바 스크립트와 리액트를 공부하면서 만든 포트폴리오입니다.
+          지금 보고 계신 사이트는 1학년 1학기 여름방학동안 자바 스크립트와 리액트를 공부하면서 만든 포트폴리오입니다.
         </p>
         <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '10px', color: '#ffffff' }}>
           앞으로도 여러 경험을 쌓고, 이를 통해 성장해 나갈 것입니다.
@@ -68,7 +68,7 @@ function AboutPage() {
           },
           {
             name: 'JavaScript',
-            icon: <FaJsSquare size={24} color="#F7DF1E" />
+            icon: <FaJs size={24} color="#F7DF1E" />
           },
           {
             name: 'Node.js',
@@ -104,7 +104,15 @@ function AboutPage() {
               alt="GitHub"
               style={{ marginRight: '10px' }}
             />
-            github.com/2T-ae
+            <a href="https://github.com/2T-ae" target="_blank" rel="noopener noreferrer">github.com/2T-ae</a>
+          </p>
+          <p style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+            <img
+              src="https://img.shields.io/badge/Discord-black?style=for-the-badge&logo=discord&logoColor=white"
+              alt="Discord"
+              style={{ marginRight: '10px' }}
+            />
+            0.tae
           </p>
         </div>
       </div>

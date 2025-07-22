@@ -52,22 +52,46 @@ function App() {
           
           {/* img2.jpg를 중앙에 배치 */}
           <img 
-            src="/img2.jpg"
-            alt="프로필 사진"
+            src="/img2_edited.png"
+            alt=""
             style={{
               position: 'absolute',
-              top: '50%',
+              top: '35%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               width: '400px',
               height: '400px',
-              borderRadius: '10px',
+              borderRadius: '50%',
               objectFit: 'cover',
+              border: '8px solid white',
+              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.3)',
               mask: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
               WebkitMask: 'radial-gradient(ellipse at center, black 60%, transparent 100%)',
               zIndex: 2
             }}
           />
+
+          {/* 이미지 아래 부가 텍스트 */}
+            <div style={{
+            position: 'absolute',
+            top: '70%', // 왼쪽 영역 내에서 이미지와 바닥 사이 중간
+            left: '50%', // 왼쪽 절반의 중앙
+            transform: 'translateX(-50%)',
+            color: 'white',
+            textAlign: 'center',
+            zIndex: 3
+          }}>
+            <p style={{ 
+              margin: 0,
+              fontSize: '20px',
+              fontWeight: 'bold',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+            }}>
+              If you are not willing to risk the usual,<br /> 
+              you will have to settle for the ordinary. <br />
+              - Jim Rohn
+            </p>
+          </div>
         </div>
 
         {/* 텍스트 영역 (오른쪽 50%) */}
@@ -106,16 +130,6 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
             </Routes>
-          </div>
-
-          {/* 푸터 */}
-          <div style={{
-            padding: '20px 40px',
-            fontSize: '18px',
-            color: 'blue',
-            textAlign: 'right',
-          }}>
-            {/* 푸터 컴포넌트가 필요하면 여기에 추가 */}
           </div>
         </div>
       </div>
