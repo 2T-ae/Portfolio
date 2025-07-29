@@ -26,7 +26,9 @@ jobs:
             options:
               nodeversion: "22"
               spa: true
-              buildenv: []
+              buildenv: 
+                - name: VITE_OPENWEATHER_API_KEY
+                  value: ${{ secrets.VITE_OPENWEATHER_API_KEY }}
               rewrites: []
             context:
               git:
