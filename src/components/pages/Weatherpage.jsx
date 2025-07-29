@@ -6,7 +6,7 @@ const GwangjuWeather = () => {
   const [error, setError] = useState(null);
 
   // 환경 변수에서 API 키 읽기
-  const API_KEY = $ {{ secrets.VITE_OPENWEATHER_API_KEY }};
+  const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
   useEffect(() => {
     // API URL 구성
