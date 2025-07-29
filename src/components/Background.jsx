@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SplitBackground = ({
-  src = '/bluesky.jpg', // 기본 배경 이미지 경로
+  src = '/bluesky.jpg',
   alt = "배경 이미지",
   type = "cover",
   opacity = 1,
@@ -14,28 +14,33 @@ const SplitBackground = ({
   children,
   textContent,
   className = "",
-  height = "100vh", // 화면 높이에 맞게 설정
-  minHeight = "500px"
+  height = "100vh",
+  minHeight = "500px",
+  fixedBackground = false, // 새 옵션: 배경 고정 여부
+  textAreaProps = {} // 텍스트 영역 추가 스타일링
 }) => {
   const containerStyles = {
-    minHeight: height, // height 대신 minHeight 사용
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    overflowX: 'hidden',
     display: 'flex',
     flexDirection: direction === 'horizontal' ? 'row' : 'column',
-    position: 'relative',
+    minHeight: height,
   };
 
   const backgroundSectionStyles = {
-    position: 'relative',
+    position: fixedBackground ? 'fixed' : 'relative',
     width: direction === 'horizontal' ? `${backgroundRatio * 100}%` : '100%',
-    height: direction === 'horizontal' ? '100%' : `${backgroundRatio * 100}%`,
-    minHeight: direction === 'horizontal' ? minHeight : `${backgroundRatio * parseInt(minHeight)}px`,
+    height: direction === 'horizontal' ? '100vh' : `${backgroundRatio * 100}%`,
+    top: fixedBackground ? 0 : 'auto',
+    left: fixedBackground ? 0 : 'auto',
     backgroundImage: `url(${src})`,
     backgroundPosition: position,
     backgroundRepeat: 'no-repeat',
-    backgroundAttachment: type === 'fixed' ? 'fixed' : 'scroll',
     backgroundSize: type === 'cover' ? 'cover' : type === 'contain' ? 'contain' : 'cover',
     opacity: opacity,
-    flexShrink: 0,
+    zIndex: 1,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,26 +52,21 @@ const SplitBackground = ({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: overlayColor,
+    background: typeof overlayColor === 'string' && overlayColor.includes('gradient') 
+      ? overlayColor 
+      : `rgba(${overlayColor.replace('rgba(', '').replace(')', '')})`,
     zIndex: 1
   } : {};
 
   const textSectionStyles = {
     position: 'relative',
     width: direction === 'horizontal' ? `${(1 - backgroundRatio) * 100}%` : '100%',
-    height: direction === 'horizontal' ? 'auto' : `${(1 - backgroundRatio) * 100}%`,
-    minHeight: direction === 'horizontal' ? minHeight : `${(1 - backgroundRatio) * parseInt(minHeight)}px`,
+    marginLeft: fixedBackground && direction === 'horizontal' ? `${backgroundRatio * 100}%` : 0,
+    minHeight: height,
     backgroundColor: textAreaColor,
     color: textAreaColor === '#000000' ? '#ffffff' : '#000000',
-    padding: '60px 40px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    fontSize: '18px',
-    lineHeight: '1.6',
-    boxSizing: 'border-box',
-    flexShrink: 0,
-    overflow: 'auto'
+    zIndex: 3,
+    ...textAreaProps
   };
 
   const contentStyles = {
@@ -81,6 +81,7 @@ const SplitBackground = ({
 
   return (
     <div className={`split-background ${className}`} style={containerStyles}>
+      {/* 배경 섹션 */}
       <div className="split-background__image-section" style={backgroundSectionStyles}>
         {overlay && <div className="split-background__overlay" style={overlayStyles} />}
         <div className="split-background__content" style={contentStyles}>
@@ -88,6 +89,7 @@ const SplitBackground = ({
         </div>
       </div>
       
+      {/* 텍스트 섹션 */}
       <div className="split-background__text-section" style={textSectionStyles}>
         {textContent}
       </div>
