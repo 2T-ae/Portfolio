@@ -10,6 +10,7 @@ import SplitBackground from './components/Background'; // Background 컴포넌�
 import HomePage from './components/pages/Homepage';
 import AboutPage from './components/pages/Aboutpage';
 import ProjectsPage from './components/pages/Projectspage';
+import WeatherPage from './components/pages/Weatherpage';
 
 function App() {
   // 왼쪽 배경 영역에 들어갈 콘텐츠
@@ -93,6 +94,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/weather" element={<WeatherPage />} />
         </Routes>
       </div>
     </div>
