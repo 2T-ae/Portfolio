@@ -11,3 +11,10 @@ Link: [www.itae.cloud](https://www.itae.cloud/)
 
 ## Page
 
+![Home](images/Home.png)
+
+![About](images/About.png)
+
+![Projects](images/Projects.png)
+
+![Weather](images/Weather.png)
